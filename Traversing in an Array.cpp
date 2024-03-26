@@ -1,24 +1,31 @@
 #include <stdio.h>
-int i,n;
-void display(int arr[]); //Declaration of the display() funtion
-	int main()
+#include <stdlib.h>
+void display(int *arr, int size);
+int main() 
+{
+    int n, i;
+    printf("Enter Number Of Elements In Array:\n");
+    scanf("%d",&n);
+    int *ar=(int *)malloc(n*sizeof(int)); // Dynamically allocate memory for the array
+    if (ar==NULL) //If no space is available
+	{ 
+        printf("Memory allocation failed.\n");
+    }
+    printf("Enter %d Elements:\n",n);
+    for (i=0;i<n;i++) 
 	{
-		printf("Enter Number Of Elements In Array:\n"); //inputs size of the array
-		scanf("%d",&n);
-		int ar[n];
-		printf("Enter %d Elements:\n",n);
-		for(i=0;i<n;i++)
-		{
-			scanf("%d",&ar[i]);  //User inputs the elemnts in the array
-		}
-		display(ar);
-	}
-	void display(int arr[])
+        scanf("%d",&ar[i]); // Store elements using pointer notation
+    }
+    display(ar, n); // Pass pointer and size to display function
+    return 0;
+}
+void display(int *arr, int size) 
+{
+    printf("The Array Elements Are: ");
+    for (int i = 0; i < size; i++) 
 	{
-		printf("The Array Elements Are: ");
-		for(i=0;i<n;i++)
-		{
-			printf("%d ",arr[i]);  //Prints the value stored in all the indexes of  the array 
-		}
-	}
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
 
