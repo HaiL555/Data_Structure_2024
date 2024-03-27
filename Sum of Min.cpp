@@ -15,10 +15,10 @@ int main()
   {
     for (int j = i + 1; j < n; j++) 
 	{
-      int currentSum = ar[i] + ar[j];
-      if (currentSum < min) 
+      int Sum = ar[i] + ar[j];
+      if (Sum < min) 
 	  {
-        min = currentSum;
+        min = Sum;
       }
     }
   }
